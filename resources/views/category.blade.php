@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Все товары')
+@section('title', $category->name)
 
 {{--<header class="bg-dark py-5">--}}
 {{--    <div class="container px-4 px-lg-5 my-5">--}}
@@ -13,12 +13,13 @@
 <!-- Section-->
 
 @section('content')
+    <h1>{{$category->name}}</h1>
+    <h2>Найдено: {{$category->products->count()}}</h2>
+
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-        @foreach($products as $product)
+        @foreach($category->products as $product)
             @include('card', compact('product'))
         @endforeach
-
-
     </div>
 @endsection

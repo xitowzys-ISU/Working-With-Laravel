@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\CaterogiesController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BasketController;
+use App\Http\Controllers\BasketPlaceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [MainController::class, 'index'])->name('index');
 
-Route::get('/categories', function () {
-    return view('categories');
-});
+Route::get('/categories', [CaterogiesController::class, 'index'])->name('categories');
 
-Route::get('/product', function () {
-    return view('product');
-});
+Route::get('/basket', [BasketController::class, 'index'])->name('basket');
+
+Route::get('/basket/place', [BasketPlaceController::class, 'index'])->name('basket-place');
+
+Route::get('/{category}', [CategoryController::class, 'index'])->name('category');
+
+Route::get('/{category}/{productName?}', [ProductController::class, 'index'])->name('product');
