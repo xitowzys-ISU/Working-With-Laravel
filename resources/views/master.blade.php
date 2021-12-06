@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico"/>
     <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
 
@@ -46,9 +47,9 @@
     </div>
 </section>
 
-<footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
-</footer>
+{{--<footer class="py-5 bg-dark">--}}
+{{--    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>--}}
+{{--</footer>--}}
 
 <script src="{{url('js/bootstrap.min.js')}}"></script>
 </body>

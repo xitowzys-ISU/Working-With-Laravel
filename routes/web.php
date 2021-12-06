@@ -27,6 +27,10 @@ Route::get('/basket', [BasketController::class, 'index'])->name('basket');
 
 Route::get('/basket/place', [BasketPlaceController::class, 'index'])->name('basket-place');
 
+Route::post('/basket/add/{id}', [BasketController::class, 'basketAdd'])->name('basket-add');
+
+Route::post('/basket/remove/{id}', [BasketController::class, 'basketRemove'])->name('basket-remove');
+
 Route::get('/{category}', [CategoryController::class, 'index'])->name('category');
 
 Route::get('/{category}/{productName?}', [ProductController::class, 'index'])->name('product');
