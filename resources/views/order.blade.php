@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Оформить заказ')
 
@@ -7,8 +7,8 @@
         <h1>Подтвердите заказ:</h1>
         <div class="container">
             <div class="row justify-content-center">
-                <p>Общая стоимость заказа: <b>71990 руб.</b></p>
-                <form action="http://laravel-diplom-1.rdavydov.ru/basket/accept" method="POST">
+                <p>Общая стоимость заказа: <b>{{$order->getFullPrice()}} руб.</b></p>
+                <form action="{{route('basket-confirm')}}" method="POST">
                     <div>
                         <p>Укажите свои имя и номер телефона, чтобы наш менеджер мог с вами связаться:</p>
 
@@ -30,7 +30,8 @@
                         </div>
                         <br>
                         <input type="hidden" name="_token" value="qhk4riitc1MAjlRcro8dvWchDTGkFDQ9Iacyyrkj">					<br>
-                        <input type="submit" class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/place" value="Подтвердить заказ">
+                        <input type="submit" class="btn btn-success" value="Подтвердить заказ">
+                        @csrf
                     </div>
                 </form>
             </div>

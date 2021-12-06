@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Корзина')
 
@@ -51,8 +51,11 @@
             </table>
             <br>
             <div class="btn-group pull-right" role="group">
-                <button type="button" class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/place">Оформить
-                    заказ</button>
+                <a href="{{route('basket-place')}}">
+                    <button type="button" class="btn btn-success">Оформить
+                        заказ
+                    </button>
+                </a>
             </div>
         </div>
     </div>

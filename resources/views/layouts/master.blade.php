@@ -8,7 +8,8 @@
     <title>@yield('title')</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico"/>
     <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
 
@@ -30,12 +31,15 @@
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
                     Корзина
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Панель администратора</a></li>
+                <a href="#">
+                    <button class="btn btn-warning" type="submit">
+                        <li>Панель администратора</li>
+                    </button>
+                </a>
             </ul>
         </div>
     </div>
@@ -43,6 +47,14 @@
 
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
+        @if(session()->has('success'))
+            <p class="alert alert-success">{{session()->get('success')}}</p>
+        @endif
+
+            @if(session()->has('warning'))
+                <p class="alert alert-warning">{{session()->get('warning')}}</p>
+            @endif
+
         @yield('content')
     </div>
 </section>
