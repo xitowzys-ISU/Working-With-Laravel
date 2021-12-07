@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BasketPlaceController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ require __DIR__.'/auth.php';
  })->middleware(['auth'])->name('dashboard');
 
 Route::get('/', [MainController::class, 'index'])->name('index');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/categories', [CaterogiesController::class, 'index'])->name('categories');
 

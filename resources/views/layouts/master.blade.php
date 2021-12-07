@@ -35,7 +35,13 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Панель администратора</a></li>
+                @guest
+                    <li><a href="{{route('login')}}">Войти</a></li>
+                @endguest
+                @auth
+                    <li><a href="{{route('home')}}">Панель администратора</a></li>
+                    <li><a href="{{route('get-logout')}}">Выйти</a></li>
+                @endauth
             </ul>
         </div>
     </div>
