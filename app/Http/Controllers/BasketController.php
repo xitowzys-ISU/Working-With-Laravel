@@ -65,7 +65,7 @@ class BasketController extends Controller
 
         $product = Product::find($productId);
 
-        session()->flash('warning', 'Удален товар ' . $product->name);
+        session()->flash('warning', 'Товар удален ' . $product->name);
 
         return redirect()->route('basket');
     }

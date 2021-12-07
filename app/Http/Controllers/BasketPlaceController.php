@@ -23,18 +23,15 @@ class BasketPlaceController extends Controller
         if (is_null($orderId)) {
             return redirect()->route('index');
         }
-
         $order = Order::find($orderId);
 
         $success = $order->saveOrder($request->name, $request->phone);
 
-        if($success) {
-            session()->flash('success', 'Ваш заказ принят в обработку');
-        } else {
-            session()->flash('error', 'Ошибка системы');
-        }
+        if($success)
+            session()->flash('success', 'Ваш заказ принят в обработку!');
+        else
+            session()->flash('warning', 'Ошибка');
 
         return redirect()->route('index');
     }
-
 }

@@ -35,11 +35,7 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <a href="#">
-                    <button class="btn btn-warning" type="submit">
-                        <li>Панель администратора</li>
-                    </button>
-                </a>
+                <li><a href="#">Панель администратора</a></li>
             </ul>
         </div>
     </div>
@@ -50,10 +46,9 @@
         @if(session()->has('success'))
             <p class="alert alert-success">{{session()->get('success')}}</p>
         @endif
-
-            @if(session()->has('warning'))
-                <p class="alert alert-warning">{{session()->get('warning')}}</p>
-            @endif
+        @if(session()->has('warning'))
+            <p class="alert alert-warning">{{session()->get('warning')}}</p>
+        @endif
 
         @yield('content')
     </div>

@@ -19,6 +19,17 @@ use App\Http\Controllers\BasketPlaceController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+require __DIR__.'/auth.php';
+
+
+ Route::get('/dashboard', function () {
+     return view('dashboard');
+ })->middleware(['auth'])->name('dashboard');
+
 Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::get('/categories', [CaterogiesController::class, 'index'])->name('categories');

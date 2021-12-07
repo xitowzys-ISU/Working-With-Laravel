@@ -52,8 +52,8 @@
             <br>
             <div class="btn-group pull-right" role="group">
                 <a href="{{route('basket-place')}}">
-                    <button type="button" class="btn btn-success">Оформить
-                        заказ
+                    <button type="button" class="btn btn-success">
+                        Оформить заказ
                     </button>
                 </a>
             </div>

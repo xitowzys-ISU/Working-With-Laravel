@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    public function products() {
-        return$this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
     }
 
-    public function getFullPrice() {
+    public function getFullPrice()
+    {
         $sum = 0;
         foreach ($this->products as $product) {
             $sum += $product->getPriceForCount();
@@ -20,7 +22,8 @@ class Order extends Model
         return $sum;
     }
 
-    public function saveOrder($name, $phone) {
+    public function saveOrder($name, $phone)
+    {
         if ($this->status == 0) {
             $this->name = $name;
             $this->phone = $phone;
@@ -28,8 +31,7 @@ class Order extends Model
             $this->save();
             session()->forget('orderId');
             return true;
-        } else {
+        } else
             return false;
-        }
     }
 }
