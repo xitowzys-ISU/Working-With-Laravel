@@ -33,7 +33,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
 Route::get('/categories', [CaterogiesController::class, 'index'])->name('categories');
 
